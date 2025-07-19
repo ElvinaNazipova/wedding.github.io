@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Приглашение на свадьбу | 25.07.2025</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;500&display=swap');
+        
+        :root {
+            --primary-color: #333;
+            --secondary-color: #888;
+            --accent-color: #d4a373;
+            --light-bg: #fff9f9;
+        }
+        
+        body, html {
+            margin: 0;
+            padding: 0;
+            color: var(--primary-color);
+            font-family: 'Playfair Display', serif;
+            background-color: var(--light-bg);
+            scroll-behavior: smooth;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        section {
+            margin-bottom: 60px;
+            text-align: center;
+        }
+        
+        h1, h2, h3 {
+            font-weight: 400;
+            letter-spacing: 2px;
+            margin-top: 0;
+        }
+        
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+        }
+        
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+        
+        h2::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 1px;
+            background-color: var(--accent-color);
+        }
+        
+        .header {
+            text-align: center;
+            padding: 60px 20px 40px;
+            background-color: white;
+            margin-bottom: 40px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .date-time {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.8rem;
+            letter-spacing: 2px;
+            margin-bottom: 30px;
+        }
+        
+        .names {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            font-style: italic;
+            color: var(--accent-color);
+        }
+        
+        /* Стили для фото - теперь они не будут смещать сайт */
+        .photo-container {
+            width: 100%;
+            max-width: 600px;
+            height: 400px; /* Фиксированная высота */
+            margin: 30px auto;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            background-color: #f0f0f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .photo-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+        
+        /* Секция "Будем рады видеть" */
+        .welcome-section {
+            font-size: 1.3rem;
+            padding: 40px 0;
+        }
+        
+        /* Секция тайминга */
+        .timing {
+            background-color: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        
+        .timing-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+        
+        .time {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 500;
+            min-width: 80px;
+            text-align: right;
+            padding-right: 20px;
+        }
+        
+        .event {
+            text-align: left;
+            flex-grow: 1;
+        }
+        
+        /* Секция обратного отсчета */
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+        
+        .countdown-item {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            min-width: 100px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .countdown-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--accent-color);
+            margin-bottom: 5px;
+        }
+        
+        .countdown-label {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        /* Секция места проведения */
+        .location {
+            background-color: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .venue-name {
+            font-size: 2rem;
+            color: var(--accent-color);
+            margin: 20px 0;
+        }
+        
+        .address {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.2rem;
+            margin: 20px 0;
+        }
+        
+        /* Секция прощания */
+        .goodbye {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--accent-color);
+            margin: 60px 0;
+            padding: 40px 0;
+            border-top: 1px solid #eee;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .day-marker {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1rem;
+            margin-top: 10px;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            h2 {
+                font-size: 1.8rem;
+            }
+            
+            .date-time, .venue-name {
+                font-size: 1.5rem;
+            }
+            
+            .timing-item {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            
+            .time {
+                text-align: center;
+                padding-right: 0;
+                margin-bottom: 5px;
+            }
+            
+            .countdown {
+                gap: 10px;
+            }
+            
+            .countdown-item {
+                min-width: 80px;
+                padding: 15px;
+            }
+            
+            .countdown-number {
+                font-size: 2rem;
+            }
+            
+            .photo-container {
+                height: 300px; /* Меньшая высота на мобильных */
+            }
+
+.calendar-section {
+            background-color: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            margin-bottom: 40px;
+        }
+
+        .calendar-header {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.5rem;
+            letter-spacing: 5px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .wedding-date {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 30px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2rem;
+        }
+
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 10px;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .calendar-day {
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Montserrat', sans-serif;
+            position: relative;
+        }
+
+        .wedding-day {
+            position: relative;
+            color: #e74c3c;
+            font-weight: bold;
+        }
+
+        .wedding-day::after {
+            content: "❤";
+            position: absolute;
+            top: -15px;
+            right: -5px;
+            font-size: 1.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .calendar-header {
+                font-size: 1.2rem;
+            }
+            
+            .wedding-date {
+                font-size: 1.5rem;
+            }
+            
+            .calendar-day {
+                height: 30px;
+                font-size: 0.9rem;
+            }
+        
+        }
+
+.interactive-countdown {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        .countdown-block {
+            background-color: white;
+            padding: 20px 15px;
+            border-radius: 8px;
+            min-width: 80px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            text-align: center;
+        }
+
+        .countdown-value {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #e74c3c;
+            margin-bottom: 5px;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .countdown-unit {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--primary-color);
+        }
+
+        @media (max-width: 768px) {
+            .interactive-countdown {
+                gap: 8px;
+            }
+            
+            .countdown-block {
+                min-width: 70px;
+                padding: 15px 10px;
+            }
+            
+            .countdown-value {
+                font-size: 1.8rem;
+            }
+        }
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Шапка с приглашением -->
+        <div class="header">
+            <h1>THE WEDDING DAY</h1>
+            <div class="date-time">25.07.2025 в 16:20</div>
+            <div class="names">Роман & Алина</div>
+            
+            <!-- Контейнер для фото №1 -->
+            <div class="photo-container">
+                <img src="C:\Users\elvin\Desktop\алинке\wedding\IMG_3085.JPG" alt="Фото приглашение">
+            </div>
+        </div>
+        <section class="calendar-section">
+            <div class="calendar-header">MЫ ЖДЕМ Вас</div>
+            <div class="wedding-date">
+                <span>25</span>
+                <span>07</span>
+                <span>25</span>
+            </div>
+            
+            <div class="calendar-grid">
+                <div class="calendar-day">1</div>
+                <div class="calendar-day">2</div>
+                <div class="calendar-day">3</div>
+                <div class="calendar-day">4</div>
+                <div class="calendar-day">5</div>
+                <div class="calendar-day">6</div>
+                <div class="calendar-day">7</div>
+                <div class="calendar-day">8</div>
+                <div class="calendar-day">9</div>
+                <div class="calendar-day">10</div>
+                <div class="calendar-day">11</div>
+                <div class="calendar-day">12</div>
+                <div class="calendar-day">13</div>
+                <div class="calendar-day">14</div>
+                <div class="calendar-day">15</div>
+                <div class="calendar-day">16</div>
+                <div class="calendar-day">17</div>
+                <div class="calendar-day">18</div>
+                <div class="calendar-day">19</div>
+                <div class="calendar-day">20</div>
+                <div class="calendar-day">21</div>
+                <div class="calendar-day">22</div>
+                <div class="calendar-day">23</div>
+                <div class="calendar-day">24</div>
+                <div class="calendar-day wedding-day">25</div>
+                <div class="calendar-day">26</div>
+                <div class="calendar-day">27</div>
+                <div class="calendar-day">28</div>
+                <div class="calendar-day">29</div>
+                <div class="calendar-day">30</div>
+                <div class="calendar-day">31</div>
+            </div>
+        </section>
+        <!-- Секция "Будем рады видеть" -->
+        <section class="welcome-section">
+            <h2>БУДЕМ РАДЫ ВИДЕТЬ</h2>
+            <p>Дорогие друзья и родные, мы с радостью ждем вас на нашем самом важном дне!</p>
+            
+            <!-- Контейнер для фото №2 -->
+            <div class="photo-container">
+                <img src="C:\Users\elvin\Desktop\алинке\wedding\IMG_3005.JPG" alt="Фото пары">
+            </div>
+        </section>
+        
+        <!-- Секция тайминга -->
+        <section class="timing-section">
+            <h2>ТАЙМИНГ</h2>
+            <div class="timing">
+                <div class="timing-item">
+                    <div class="time">16:20</div>
+                    <div class="event">Сбор гостей</div>
+                </div>
+                <div class="timing-item">
+                    <div class="time">16:30</div>
+                    <div class="event">Церемония регистрации</div>
+                </div>
+                <div class="timing-item">
+                    <div class="time">18:00</div>
+                    <div class="event">Welcome</div>
+                </div>
+                <div class="timing-item">
+                    <div class="time">--:--</div>
+                    <div class="event">Завершение вечера</div>
+                </div>
+            </div>
+        </section>
+        
+            <section class="countdown-section">
+            <h2>ДО НАШЕЙ СВАДЬБЫ ОСТАЛОСЬ</h2>
+            <div class="interactive-countdown">
+                <div class="countdown-block">
+                    <div class="countdown-value" id="days">0</div>
+                    <div class="countdown-unit">дней</div>
+                </div>
+                <div class="countdown-block">
+                    <div class="countdown-value" id="hours">0</div>
+                    <div class="countdown-unit">часов</div>
+                </div>
+                <div class="countdown-block">
+                    <div class="countdown-value" id="minutes">0</div>
+                    <div class="countdown-unit">минут</div>
+                </div>
+                <div class="countdown-block">
+                    <div class="countdown-value" id="seconds">0</div>
+                    <div class="countdown-unit">секунд</div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Секция места проведения -->
+        <section class="location-section">
+            <h2>МЕСТО ПРОВЕДЕНИЯ</h2>
+            <div class="location">
+                <div class="venue-name">«ТУМАН»</div>
+                <div class="address">Адрес: СНТ Газовик, Ягодная, 3ж</div>
+                
+                <!-- Контейнер для фото №3 -->
+                <div class="photo-container">
+                    <img src="C:\Users\elvin\Desktop\алинке\wedding\image-18-07-25-09-49.png" alt="Фото места проведения">
+                </div>
+                
+            </div>
+        </section>
+        
+        <!-- Прощальная секция -->
+        <section class="goodbye-section">
+            <div class="goodbye">
+                ДО СКОРОЙ ВСТРЕЧИ!
+                            
+            <!-- Контейнер для фото №4 -->
+            <div class="photo-container">
+                <img src="C:\Users\elvin\Downloads\18-07-2025_16-40-22\в конец сайта.JPG" alt="Прощальное фото">
+            </div>
+        </section>
+    </div>
+<script>
+        // Обратный отсчёт до свадьбы
+        function updateCountdown() {
+            const weddingDate = new Date('2025-07-25T16:00:00');
+            const now = new Date();
+            const diff = weddingDate - now;
+            
+            if (diff <= 0) {
+                document.getElementById('days').textContent = '0';
+                document.getElementById('hours').textContent = '0';
+                document.getElementById('minutes').textContent = '0';
+                document.getElementById('seconds').textContent = '0';
+                return;
+            }
+            
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+            
+            document.getElementById('days').textContent = days;
+            document.getElementById('hours').textContent = Math.floor(hours);
+            document.getElementById('minutes').textContent = minutes;
+            document.getElementById('seconds').textContent = seconds;
+        }
+        
+        // Обновляем каждую секунду
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+    </script>
+</body>
+</html>
